@@ -25,4 +25,12 @@
 <p [style.text-decoration]="isTextDecoration">{{age}}</p>
 
 
+<!-- Event Binding -->
+<h3>Event Binding</h3>
+<button (click)="sumAge()">+</button>
+<button (click)="subAge()">-</button>
+<input (keydown.shift.t)="onKeyDown($event)"/>
 
+
+<div style="background: cadetblue; width: 300px; height: 300px; margin-top: 10px;"
+ (mousemove)="onMouseEvent($event)"></div>

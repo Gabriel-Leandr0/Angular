@@ -18,5 +18,21 @@ export class TemplateBindingComponent {
   public getBirthYear(age:number): number {
     return new Date().getFullYear() - age;
   }
+
+  public sumAge(): number {
+    return this.age ++;
+  }
+
+  public subAge(): number {
+    return this.age --;
+  }
+
+  public onKeyDown(event: Event) {
+    return console.log(event);
+  }
+
+  public onMouseEvent(event: MouseEvent) {
+    return console.log(event.clientX, event.clientY);
+  }
   
 }
