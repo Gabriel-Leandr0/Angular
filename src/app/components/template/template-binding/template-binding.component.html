@@ -1,36 +1,67 @@
 <h2>Template</h2>
-
-<!-- Text Interpolation -->
 <h3>Text Interpolation</h3>
-<p>hello my name is {{name}}</p>
-<p>my age is {{age}}</p>
-<p>my birth year is {{getBirthYear(age)}}</p>
+<p>{{ name }} - {{ age }}</p>
 
-<!-- Property Binding -->
-<h3>Property Binding</h3>
-<button [hidden]="isDisabled"><img [src]="srcValue" [alt]="name" [title]="name"></button>
-<button (click)="isDisabled = !isDisabled">Clique aqui</button>
+<p>{{ condition }}</p>
 
+<hr />
 
-<!-- Attribute Binding -->
-<h3>Attribute Binding</h3>
-<p [attr.aria-label]="name"></p>
+<h3>Property binding</h3>
+<!-- <element [property]='value'></element> -->
+<button [disabled]="isDisabled">Button</button>
+<!-- <img [src]="srcValue" [alt]="name" [title]="name" /> -->
 
-<!-- Class Binding -->
-<h3>Class Binding</h3>
-<p [class.background-red]="age >= 18" [class.background-blue]="age < 18">{{name}}</p>
+<hr />
 
-<!-- Style Binding -->
-<h3>Style Binding</h3>
-<p [style.text-decoration]="isTextDecoration">{{age}}</p>
+<h3>Attribute binding</h3>
+<!-- <element [attr.attribute-you-are-targeting]='value'></element> -->
+<p [attr.title]="name" [attr.aria-label]="name">Dener Troquatte</p>
+<hr />
 
+<h3>Class and Style binding</h3>
+<p [class.background-red]="age > 32" [class.background-blue]="age < 32">
+  {{ name }}
+</p>
 
-<!-- Event Binding -->
-<h3>Event Binding</h3>
-<button (click)="sumAge()">+</button>
-<button (click)="subAge()">-</button>
-<input (keydown.shift.t)="onKeyDown($event)"/>
+<p [style.text-decoration]="isTextDecoration">{{ age }}</p>
 
+<hr />
 
-<div style="background: cadetblue; width: 300px; height: 300px; margin-top: 10px;"
- (mousemove)="onMouseEvent($event)"></div>
+<h3>Event binding</h3>
+<!--
+  <element
+      (TargetEventName)='TemplateStatement'
+  ></element>
+-->
+
+<button (click)="sum()">+</button>
+<button (click)="sub()">-</button>
+<input (keydown.shift.t)="onKeyDown($event)" />
+
+<div
+  style="background: red; width: 300px; height: 300px; margin-top: 10px"
+  (mousemove)="onMouseMove($event)"
+></div>
+
+<hr />
+
+<h3>Two-way binding</h3>
+<input [(ngModel)]="name" />
+
+{{ name }}
+
+<hr />
+
+<h3>Diretivas de atributo</h3>
+<div [ngClass]="{ 'background-red': age > 35, 'background-blue': age < 35 }">
+  Classes condicionais.
+</div>
+
+<div
+  [ngStyle]="{
+    color: age > 35 ? 'green' : 'red',
+    'font-size':  age > 35 ? '10px' : '20px',
+  }"
+>
+  Estilo dinâmico.
+</div>
